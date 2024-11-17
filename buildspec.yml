@@ -1,0 +1,25 @@
+version: 0.2
+
+env:
+  variables:
+    FRONTEND_DIR: frontend
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Installing dependencies...
+      - cd $FRONTEND_DIR
+      - yarn install
+  build:
+    commands:
+      - echo Building the React app...
+      - yarn build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files: '**/*'
+  base-directory: $FRONTEND_DIR/out

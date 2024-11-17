@@ -10,6 +10,8 @@
     "frontend"
   ],
   "scripts": {
-    "dev": "yarn workspace frontend dev"
+    "dev": "yarn workspace frontend dev",
+    "build": "yarn workspace frontend build",
+    "lint": "yarn workspace frontend lint"
   }
 }
