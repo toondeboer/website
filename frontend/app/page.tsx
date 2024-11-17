@@ -1,7 +1,12 @@
+"use client"
+
+import React from "react";
+import HomeScreen from "../home/HomeScreen";
+
 export default function Home() {
-  return (
-      <div className="container mx-auto p-4 justify-items-center">
-          Hello World!
-      </div>
-  );
+    return (
+        <>
+            <HomeScreen/>
+        </>
+    );
 }
