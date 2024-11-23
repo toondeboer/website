@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import "./HomeScreen.css";
-import SplashScreen from "../splash/SplashScreen"; // Assuming you have custom CSS for styling
+import {SplashScreen} from "../splash/SplashScreen"; // Assuming you have custom CSS for styling
 
-const HomeScreen = () => {
+export const HomeScreen = () => {
 
     const [showSplashScreen, setShowSplashScreen] = useState(true);
 
@@ -57,4 +57,3 @@ const HomeScreen = () => {
     );
 };
 
-export default HomeScreen;
