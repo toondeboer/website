@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import { useAuth } from "react-oidc-context";
 import { User } from "oidc-client-ts";
+import { jwtDecode } from "jwt-decode";
 
 export const Protected: React.FC<PropsWithChildren> = ({ children }) => {
   const auth = useAuth();
@@ -20,9 +21,13 @@ export const Protected: React.FC<PropsWithChildren> = ({ children }) => {
   if (auth.isAuthenticated) {
     const user: User | null | undefined = auth.user;
 
+    console.log(jwtDecode(user?.access_token ?? ""));
+    console.log(jwtDecode(user?.access_token ?? ""));
+    console.log(user);
+
     return (
       <div>
-        <h1>Welcome, {user?.profile.email}</h1>
+        <h1>Welcome, {user?.profile.nickname}!</h1>
         <button onClick={() => signOutRedirect()}>Logout</button>
         {children}
       </div>

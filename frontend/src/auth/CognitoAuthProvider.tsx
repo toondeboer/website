@@ -6,7 +6,7 @@ const cognitoAuthConfig = {
   client_id: "3o34bbl92faeo9ljo11eebtim2",
   redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL}/callback`,
   response_type: "code",
-  scope: "email openid",
+  scope: "email openid profile",
 };
 
 export const CognitoAuthProvider: React.FC<PropsWithChildren> = ({

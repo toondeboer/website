@@ -1,90 +1,95 @@
 .home-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #6e7dff, #9c79ff);
-    color: white;
-    font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6e7dff, #9c79ff);
+  color: white;
+  font-family: "Arial", sans-serif;
 }
 
 .header {
-    text-align: center;
+  text-align: center;
 }
 
 .greeting {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .role {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
 }
 
 .intro {
-    text-align: center;
-    max-width: 600px;
-    margin-bottom: 2rem;
-    font-size: 1.1rem;
-    line-height: 1.5;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.subHeader {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .button {
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 30px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    text-align: center;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  text-align: center;
 }
 
-.projects {
-    background-color: #6e7dff;
+.project {
+  background-color: #ef8e39;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.projects:hover {
-    background-color: #4751f0;
+.project:hover {
+  background-color: #ea733f;
 }
 
-.contact {
-    background-color: #9c79ff;
-}
-
-.contact:hover {
-    background-color: #7a5fe0;
+.projectIcon {
+  height: 100px;
 }
 
 .footer {
-    margin-top: auto;
-    text-align: center;
+  margin-top: auto;
+  text-align: center;
 }
 
 .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 .social-links a {
-    color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .social-links a:hover {
-    color: #ffdf00;
+  color: #ffdf00;
 }
