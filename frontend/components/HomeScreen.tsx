@@ -19,6 +19,9 @@ import {
   Rocket,
   Heart
 } from 'lucide-react';
+import Image from 'next/image';
+
+import headshot from '../assets/headshot.jpeg'
 
 const HomeScreen = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -158,7 +161,7 @@ const HomeScreen = () => {
           <div className="flex justify-between items-center h-16">
             <div
               className="font-bold text-xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Your Name
+              Toon de Boer
             </div>
 
             {/* Desktop Navigation */}
@@ -217,10 +220,15 @@ const HomeScreen = () => {
           <div className="mb-8">
             <div className="relative mb-8">
               <div
-                className="w-36 h-36 mx-auto rounded-full bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 flex items-center justify-center text-white text-5xl font-bold mb-6 shadow-2xl shadow-purple-500/25 relative overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-600 animate-pulse opacity-75"></div>
-                <span className="relative z-10">YN</span>
+                className="w-36 h-36 mx-auto rounded-full shadow-2xl shadow-purple-500/25 relative overflow-hidden border-4 border-transparent bg-gradient-to-r from-blue-500 to-purple-600 p-1">
+                <Image
+                  src={headshot}
+                  alt="Toon de Boer - Full Stack Developer"
+                  width={144}
+                  height={144}
+                  className="w-full h-full object-cover rounded-full"
+                  priority // This loads the image immediately since it's above the fold
+                />
               </div>
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4">
                 <Star className="w-8 h-8 text-yellow-400 animate-bounce" style={{animationDelay: '0s'}}/>
@@ -291,7 +299,7 @@ const HomeScreen = () => {
             <div className="space-y-6">
               <h3
                 className="text-3xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                Hello! I'm [Your Name] 👋
+                Hello! I'm Toon de Boer 👋
               </h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
                 With years of experience in software development, I specialize in creating <span
@@ -317,12 +325,15 @@ const HomeScreen = () => {
             <div className="relative">
               <div className="relative group">
                 <div
-                  className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-lg opacity-25 group-hover:opacity-50 transition-all duration-500 animate-pulse"></div>
-                <div
-                  className="relative w-80 h-80 mx-auto rounded-3xl bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 flex items-center justify-center text-white text-6xl font-bold shadow-2xl shadow-purple-500/25 overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-gradient-to-br from-blue-400/50 to-purple-600/50 animate-pulse"></div>
-                  <span className="relative z-10">Photo</span>
+                  className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-lg opacity-25 group-hover:opacity-50 transition-all duration-500"></div>
+                <div className="relative w-80 h-80 mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/25">
+                  <Image
+                    src={headshot}
+                    alt="Toon de Boer - Full Stack Developer"
+                    width={320}
+                    height={320}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
               </div>
             </div>
@@ -687,7 +698,7 @@ const HomeScreen = () => {
           <div className="text-center">
             <p className="text-gray-300 text-lg">
               &copy; 2025 <span
-              className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">Your Name</span>.
+              className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">Toon de Boer</span>.
               Built with <span className="text-red-400 animate-pulse">❤️</span>, React, TypeScript, and Next.js.
             </p>
             <div className="flex justify-center items-center gap-2 mt-4">
