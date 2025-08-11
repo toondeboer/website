@@ -623,7 +623,7 @@ const HomeScreen = () => {
                   </a>
 
                   <a
-                    href="https://linkedin.com/in/yourprofile"
+                    href="https://linkedin.com/in/toon-de-boer"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center gap-4 p-6 rounded-2xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 dark:hover:from-blue-950/20 dark:hover:to-cyan-950/20 transition-all duration-300 hover:scale-105 border border-gray-200/50 dark:border-gray-700/50"
@@ -640,7 +640,7 @@ const HomeScreen = () => {
                   </a>
 
                   <a
-                    href="https://github.com/yourusername"
+                    href="https://github.com/toondeboer"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center gap-4 p-6 rounded-2xl hover:bg-gradient-to-r hover:from-gray-50 hover:to-purple-50 dark:hover:from-gray-950/20 dark:hover:to-purple-950/20 transition-all duration-300 hover:scale-105 border border-gray-200/50 dark:border-gray-700/50"
