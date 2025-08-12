@@ -262,16 +262,18 @@ const HomeScreen = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="mb-8">
             <div className="relative mb-8">
-              <div
-                className="w-36 h-36 mx-auto rounded-full shadow-2xl shadow-purple-500/25 relative overflow-hidden border-4 border-transparent bg-gradient-to-r from-blue-500 to-purple-600 p-1">
-                <Image
-                  src={headshot}
-                  alt="Toon de Boer - Full Stack Developer"
-                  width={144}
-                  height={144}
-                  className="w-full h-full object-cover rounded-full"
-                  priority
-                />
+              <div className="w-36 h-36 mx-auto rounded-full relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-1">
+                  <Image
+                    src={headshot}
+                    alt="Toon de Boer - Full Stack Developer"
+                    width={144}
+                    height={144}
+                    className="w-full h-full object-cover rounded-full"
+                    priority
+                  />
+                </div>
+                <div className="absolute inset-0 rounded-full shadow-2xl shadow-purple-500/25"></div>
               </div>
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4">
                 <Star className="w-8 h-8 text-yellow-400 animate-bounce" style={{animationDelay: '0s'}}/>
