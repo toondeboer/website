@@ -21,7 +21,9 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 
-import headshot from '../assets/headshot.jpeg'
+import HEADSHOT from '../assets/headshot.jpeg'
+
+const EMAIL = 'toondeboer123@gmail.com'
 
 const HomeScreen = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -60,7 +62,7 @@ const HomeScreen = () => {
       if (current) setActiveSection(current);
     };
 
-    const handleMouseMove = (e: any) => {
+    const handleMouseMove = (e: { clientX: number, clientY: number }) => {
       setMousePosition({x: e.clientX, y: e.clientY});
     };
 
@@ -72,7 +74,7 @@ const HomeScreen = () => {
     };
   }, []);
 
-  const scrollToSection = (sectionId: any) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({behavior: 'smooth'});
@@ -265,7 +267,7 @@ const HomeScreen = () => {
               <div className="w-36 h-36 mx-auto rounded-full relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-1">
                   <Image
-                    src={headshot}
+                    src={HEADSHOT}
                     alt="Toon de Boer - Full Stack Developer"
                     width={144}
                     height={144}
@@ -335,7 +337,7 @@ const HomeScreen = () => {
               About Me
             </h2>
             <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-              I'm a <span
+              {"I'm a "}<span
               className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-semibold">passionate full stack developer</span> who
               loves turning complex problems into simple, beautiful solutions.
             </p>
@@ -344,7 +346,7 @@ const HomeScreen = () => {
             <div className="space-y-6">
               <h3
                 className="text-3xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                Hello! I'm Toon de Boer <span className="text-yellow-500">👋</span>
+                {"Hello! I'm Toon de Boer "}<span className="text-yellow-500">👋</span>
               </h3>
               <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-lg`}>
                 With years of experience in software development, I specialize in creating <span
@@ -354,10 +356,10 @@ const HomeScreen = () => {
                 efficient code and <span className="text-purple-600 font-semibold">intuitive user experiences</span>.
               </p>
               <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-lg`}>
-                I'm driven by the challenge of learning new technologies and the satisfaction of building products that
-                users genuinely love.
-                When I'm not coding, you'll find me exploring the latest tech trends, contributing to open source, or
-                planning my next <span className="text-pink-600 font-semibold">innovative project</span>.
+                {"I'm driven by the challenge of learning new technologies and the satisfaction of building products that " +
+                  "users genuinely love. " +
+                  "When I'm not coding, you'll find me exploring the latest tech trends, contributing to open source, or " +
+                  "planning my next "}<span className="text-pink-600 font-semibold">innovative project</span>.
               </p>
               <div className="flex gap-4 pt-4">
                 <button
@@ -373,7 +375,7 @@ const HomeScreen = () => {
                   className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-lg opacity-25 group-hover:opacity-50 transition-all duration-500"></div>
                 <div className="relative w-80 h-80 mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/25">
                   <Image
-                    src={headshot}
+                    src={HEADSHOT}
                     alt="Toon de Boer - Full Stack Developer"
                     width={320}
                     height={320}
@@ -448,7 +450,7 @@ const HomeScreen = () => {
             </h2>
             <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
               A showcase of <span
-              className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-semibold">applications I've built</span>,
+              className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-semibold">{"applications I've built"}</span>,
               from mobile apps to web platforms.
             </p>
           </div>
@@ -641,10 +643,10 @@ const HomeScreen = () => {
           <div className="text-center mb-16">
             <h2
               className={`text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r ${darkMode ? 'from-white via-purple-100 to-pink-100' : 'from-gray-900 via-purple-900 to-pink-900'} bg-clip-text text-transparent`}>
-              Let's Connect <span className="text-yellow-400">✨</span>
+              {"Let's Connect "}<span className="text-yellow-400">✨</span>
             </h2>
             <p className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}>
-              Ready to bring your next project to life? Let's discuss how we can <span
+              {"Ready to bring your next project to life? Let's discuss how we can "}<span
               className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-semibold">work together</span>.
             </p>
           </div>
@@ -656,7 +658,7 @@ const HomeScreen = () => {
                 className={`relative ${darkMode ? 'bg-gray-900/95 border-gray-700/50' : 'bg-white/95 border-white/20'} rounded-3xl p-8 shadow-2xl border backdrop-blur-sm`}>
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   <a
-                    href="mailto:your.email@example.com"
+                    href={`mailto:${EMAIL}`}
                     className={`group flex items-center gap-4 p-6 rounded-2xl hover:bg-gradient-to-r ${darkMode ? 'hover:from-blue-950/30 hover:to-purple-950/30' : 'hover:from-blue-50 hover:to-purple-50'} transition-all duration-300 hover:scale-105 border ${darkMode ? 'border-gray-700/50' : 'border-gray-200/50'}`}
                   >
                     <div
@@ -666,7 +668,7 @@ const HomeScreen = () => {
                     <div>
                       <h3
                         className="font-bold text-lg bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Email</h3>
-                      <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>your.email@example.com</p>
+                      <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{EMAIL}</p>
                     </div>
                   </a>
 
