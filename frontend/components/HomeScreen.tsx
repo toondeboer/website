@@ -24,6 +24,7 @@ import Image from 'next/image';
 import headshot from '../assets/headshot.jpeg'
 
 const HomeScreen = () => {
+  const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
@@ -142,7 +143,7 @@ const HomeScreen = () => {
 
   return (
     <div
-      className={`min-h-screen transition-all duration-500 bg-gradient-to-br from-slate-50 via-white to-blue-50 text-gray-900`}>
+      className={`min-h-screen transition-all duration-500 ${darkMode ? 'dark bg-gray-950 text-white' : 'bg-gradient-to-br from-slate-50 via-white to-blue-50 text-gray-900'}`}>
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div
@@ -156,7 +157,7 @@ const HomeScreen = () => {
 
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-black/5`}>
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${darkMode ? 'bg-gray-950/90' : 'bg-white/90'} backdrop-blur-xl border-b ${darkMode ? 'border-gray-800/50' : 'border-white/20'} shadow-lg shadow-black/5`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div
@@ -173,7 +174,7 @@ const HomeScreen = () => {
                   className={`relative transition-all duration-300 ${
                     activeSection === item.toLowerCase()
                       ? 'text-blue-600 font-semibold scale-110'
-                      : 'text-gray-600 hover:text-gray-900 hover:scale-105'
+                      : darkMode ? 'text-gray-300 hover:text-white hover:scale-105' : 'text-gray-600 hover:text-gray-900 hover:scale-105'
                   }`}
                 >
                   {item}
@@ -186,6 +187,13 @@ const HomeScreen = () => {
             </div>
 
             <div className="flex items-center space-x-4">
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className="p-2 rounded-xl hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10 transition-all duration-300 hover:scale-110"
+              >
+                {darkMode ? <Sun className="w-5 h-5 text-yellow-500"/> : <Moon className="w-5 h-5 text-blue-600"/>}
+              </button>
+
               {/* Mobile menu button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -269,9 +277,9 @@ const HomeScreen = () => {
                 className="group border-2 border-transparent bg-gradient-to-r from-pink-500 to-orange-500 p-0.5 rounded-2xl hover:scale-105 transition-all duration-300 shadow-lg shadow-pink-500/25 hover:shadow-xl hover:shadow-pink-500/40"
               >
                 <div
-                  className={`bg-white rounded-xl px-8 py-3.5 font-semibold bg-gradient-to-r from-pink-600 to-orange-600 text-white bg-clip-text text-transparent flex items-center justify-center gap-2`}>
+                  className={`${darkMode ? 'bg-gray-950' : 'bg-white'} rounded-xl px-8 py-3.5 font-semibold bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent flex items-center justify-center gap-2`}>
                   <span>Get In Touch</span>
-                  <Heart className="w-5 h-5  group-hover:animate-pulse"/>
+                  <Heart className="w-5 h-5 text-pink-500 group-hover:animate-pulse"/>
                 </div>
               </button>
             </div>
