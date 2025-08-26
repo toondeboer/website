@@ -634,10 +634,10 @@ const HomeScreen = () => {
                     </div>
 
                     {!project.comingSoon && (
-                      <div className="flex gap-3">
+                      <div className="flex gap-3 flex-wrap">
                         {project.appStore && (
                           <Link href={project.appStore} target="_blank">
-                            <button className="flex-1 bg-gradient-to-r from-gray-900 to-black text-white px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300 shadow-lg">
+                            <button className="flex-1 bg-gradient-to-r from-blue-600 to-blue-400 text-white px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300 shadow-lg">
                               <ExternalLink className="w-4 h-4" />
                               App Store
                             </button>
@@ -648,6 +648,14 @@ const HomeScreen = () => {
                             <button className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300 shadow-lg">
                               <ExternalLink className="w-4 h-4" />
                               Google Play
+                            </button>
+                          </Link>
+                        )}
+                        {project.website && (
+                          <Link href={project.website} target="_blank">
+                            <button className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-all duration-300 shadow-lg">
+                              <ExternalLink className="w-4 h-4" />
+                              Open Website
                             </button>
                           </Link>
                         )}
@@ -913,12 +921,14 @@ const HomeScreen = () => {
                     </span>
                     !<span className="text-red-400"> 🚀</span>
                   </p>
-                  <button className="group bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:from-pink-600 hover:via-purple-600 hover:to-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl shadow-purple-500/25 hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-110">
-                    <span className="flex items-center gap-2">
-                      Start a Conversation
-                      <Heart className="w-5 h-5 group-hover:animate-pulse" />
-                    </span>
-                  </button>
+                  <Link href={`mailto:${EMAIL}`}>
+                    <button className="group bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 hover:from-pink-600 hover:via-purple-600 hover:to-blue-600 text-white px-10 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl shadow-purple-500/25 hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-110">
+                      <span className="flex items-center gap-2">
+                        Start a Conversation
+                        <Heart className="w-5 h-5 group-hover:animate-pulse" />
+                      </span>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
