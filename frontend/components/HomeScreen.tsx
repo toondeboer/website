@@ -20,9 +20,9 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-import HEADSHOT from "../assets/headshot.jpeg";
 import Link from "next/link";
 
+const HEADSHOT = "/assets/headshot.jpeg";
 const EMAIL = "toondeboer123@gmail.com";
 
 const HomeScreen = () => {
