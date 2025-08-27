@@ -29,7 +29,6 @@ const HomeScreen = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   // Initialize dark mode based on system preference and localStorage
   useEffect(() => {
@@ -71,12 +70,21 @@ const HomeScreen = () => {
       if (current) setActiveSection(current);
     };
 
-    const handleMouseMove = (e: { clientX: number; clientY: number }) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    // Get reference to the background element
+    const backgroundElement: HTMLElement | null = document.querySelector(
+      "[data-mouse-background]",
+    );
+
+    const handleMouseMove = (e: MouseEvent) => {
+      // Direct DOM manipulation - no React re-render
+      if (backgroundElement) {
+        backgroundElement.style.transform = `translate3d(${e.clientX - 192}px, ${e.clientY - 192}px, 0)`;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
@@ -213,12 +221,12 @@ const HomeScreen = () => {
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div
-          className={`absolute w-96 h-96 ${darkMode ? "bg-gradient-to-r from-blue-500/3 to-purple-500/3" : "bg-gradient-to-r from-blue-500/5 to-purple-500/5"} rounded-full blur-3xl transition-all duration-1000 ease-out`}
+          data-mouse-background
+          className={`absolute w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl will-change-transform`}
           style={{
-            left: mousePosition.x - 192,
-            top: mousePosition.y - 192,
+            transform: "translate3d(-192px, -192px, 0)", // Initial position
           }}
-        ></div>
+        />
       </div>
 
       {/* Navigation */}
