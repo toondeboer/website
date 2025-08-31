@@ -19,8 +19,8 @@ import {
   Heart,
 } from "lucide-react";
 import Image from "next/image";
-
 import Link from "next/link";
+import ProfessionalExperience from "@/components/ProfessionalExperience";
 
 const HEADSHOT = "/assets/headshot.jpeg";
 const EMAIL = "toondeboer123@gmail.com";
@@ -684,126 +684,7 @@ const HomeScreen = () => {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-24 relative">
-        <div
-          className={`absolute inset-0 ${darkMode ? "bg-gradient-to-br from-blue-950 via-cyan-950 to-teal-950" : "bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50"}`}
-        ></div>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-16">
-            <h2
-              className={`text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r ${darkMode ? "from-white via-blue-100 to-teal-100" : "from-gray-900 via-blue-900 to-teal-900"} bg-clip-text text-transparent`}
-            >
-              Professional Experience
-            </h2>
-            <p
-              className={`text-xl ${darkMode ? "text-gray-300" : "text-gray-600"} max-w-3xl mx-auto`}
-            >
-              My journey as a{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-600 font-semibold">
-                software engineer
-              </span>
-              , building solutions and growing with amazing teams.
-            </p>
-          </div>
-          <div className="space-y-8">
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-teal-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-              <div
-                className={`relative ${darkMode ? "bg-gray-900/90 border-gray-700/50" : "bg-white/90 border-white/20"} rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border backdrop-blur-sm`}
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
-                      Senior Full Stack Developer
-                    </h3>
-                    <p className="text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                      Accenture
-                    </p>
-                  </div>
-                  <span className="text-gray-500 font-medium bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent mt-2 md:mt-0">
-                    2024 - Present
-                  </span>
-                </div>
-                <p
-                  className={`${darkMode ? "text-gray-300" : "text-gray-600"} mb-6 text-lg leading-relaxed`}
-                >
-                  Led development of multiple high-impact applications, mentored
-                  junior developers, and implemented best practices that
-                  improved team productivity by{" "}
-                  <span className="text-emerald-600 font-semibold">40%</span>.
-                  Spearheaded the migration to modern tech stack and established
-                  CI/CD pipelines.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-sm font-medium shadow-md">
-                    React
-                  </span>
-                  <span className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full text-sm font-medium shadow-md">
-                    Node.js
-                  </span>
-                  <span className="px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full text-sm font-medium shadow-md">
-                    Azure
-                  </span>
-                  <span className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full text-sm font-medium shadow-md">
-                    Team Leadership
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-              <div
-                className={`relative ${darkMode ? "bg-gray-900/90 border-gray-700/50" : "bg-white/90 border-white/20"} rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border backdrop-blur-sm`}
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                      Full Stack Developer
-                    </h3>
-                    <p className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                      Navara
-                    </p>
-                  </div>
-                  <span className="text-gray-500 font-medium bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent mt-2 md:mt-0">
-                    2022 - 2024
-                  </span>
-                </div>
-                <p
-                  className={`${darkMode ? "text-gray-300" : "text-gray-600"} mb-6 text-lg leading-relaxed`}
-                >
-                  Developed and maintained web applications serving{" "}
-                  <span className="text-blue-600 font-semibold">
-                    100k+ users
-                  </span>
-                  , optimized database performance by{" "}
-                  <span className="text-purple-600 font-semibold">60%</span>,
-                  and collaborated with cross-functional teams to deliver
-                  features on schedule with{" "}
-                  <span className="text-emerald-600 font-semibold">
-                    99.9% uptime
-                  </span>
-                  .
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full text-sm font-medium shadow-md">
-                    JavaScript
-                  </span>
-                  <span className="px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full text-sm font-medium shadow-md">
-                    Python
-                  </span>
-                  <span className="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-full text-sm font-medium shadow-md">
-                    PostgreSQL
-                  </span>
-                  <span className="px-4 py-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full text-sm font-medium shadow-md">
-                    Agile
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProfessionalExperience darkMode={darkMode} />
 
       {/* Contact Section */}
       <section id="contact" className="py-24 relative overflow-hidden">
