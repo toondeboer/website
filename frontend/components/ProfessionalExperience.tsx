@@ -145,7 +145,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
         duration: "9 mos",
         description:
           "Conducted a field study on migrating from trunk-based development to merge requests. Interviewed and surveyed developers across teams and analyzed GitHub data using Python. Delivered actionable insights that improved code quality and team velocity.",
-        downloadFile: "Master_Thesis_Toon_de_Boer.pdf",
+        downloadFile: "Master_Thesis_Toon_de_Boer_Adyen.pdf",
       },
     },
     {
@@ -166,7 +166,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
         title: "Bachelor Thesis",
         description:
           "Akka Decision Engine - Performance optimization using actor model architecture",
-        downloadFile: "BachelorThesis_AkkaDecisionEngine.pdf",
+        downloadFile: "Bachelor_Thesis_Toon_de_Boer_Finaps.pdf",
       },
     },
     {
@@ -187,9 +187,13 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
   ];
 
   const handleThesisDownload = (filename: string) => {
-    // Placeholder for download functionality
-    console.log(`Downloading ${filename}`);
-    // In a real implementation, you would handle the file download here
+    const link = document.createElement("a");
+    link.href = `/documents/${filename}`;
+    link.download = filename;
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
