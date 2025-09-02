@@ -47,7 +47,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
     },
     {
       id: "navara",
-      title: "Full-Stack Software Engineer (Consultant)",
+      title: "Full-Stack Software Engineer",
       company: "NAVARA",
       period: "Aug 2022 - Feb 2024",
       duration: "1 yr 7 mos",
@@ -150,7 +150,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
     },
     {
       id: "finaps",
-      title: "Backend Software Engineer & Bachelor Thesis Intern",
+      title: "Backend Software Engineer",
       company: "Finaps",
       period: "Apr 2019 - Jul 2019",
       duration: "4 mos",
