@@ -1,12 +1,25 @@
 import React from "react";
-import {
-  Download,
-  ExternalLink,
-  Building,
-  Calendar,
-  MapPin,
-} from "lucide-react";
+import { Download, ExternalLink, Calendar, MapPin } from "lucide-react";
 import Image from "next/image";
+
+// Helper function to calculate dynamic duration
+const calculateDuration = (startDate: string): string => {
+  const start = new Date(startDate);
+  const now = new Date();
+
+  const diffInMs = now.getTime() - start.getTime();
+  const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+  const diffInMonths = Math.floor(diffInDays / 30.44); // Average days per month
+  const years = Math.floor(diffInMonths / 12);
+  const months = diffInMonths % 12;
+
+  if (years > 0) {
+    return months > 0
+      ? `${years} yr${years > 1 ? "s" : ""} ${months} mo${months > 1 ? "s" : ""}`
+      : `${years} yr${years > 1 ? "s" : ""}`;
+  }
+  return `${months} mo${months > 1 ? "s" : ""}`;
+};
 
 const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
   const experiences = [
@@ -15,7 +28,8 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
       title: "Senior Full-Stack Software Engineer",
       company: "Accenture",
       period: "Mar 2024 - Present",
-      duration: "1 yr 6 mos", // TODO: calculate dynamically (fun to be updating each second)
+      startDate: "2024-03-01", // For dynamic calculation
+      duration: calculateDuration("2024-03-01"),
       location: "Amsterdam, North Holland, Netherlands · Hybrid",
       type: "Full-time",
       description:
@@ -28,8 +42,9 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
         "Azure DevOps Services",
       ],
       logoPlaceholder: "accenture.jpeg",
-      colorScheme: "from-purple-600 to-blue-600",
-      bgGradient: "from-purple-500 to-blue-500",
+      brandColor: "#931CF5",
+      colorScheme: "from-purple-600 to-purple-700",
+      bgGradient: "from-purple-500 to-purple-600",
     },
     {
       id: "navara",
@@ -49,8 +64,9 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
         "Amazon Web Services (AWS)",
       ],
       logoPlaceholder: "navara.jpeg",
-      colorScheme: "from-orange-600 to-red-600",
-      bgGradient: "from-orange-500 to-red-500",
+      brandColor: "#4264F6",
+      colorScheme: "from-blue-600 to-blue-700",
+      bgGradient: "from-blue-500 to-blue-600",
       projects: [
         {
           id: "truqu",
@@ -69,6 +85,9 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
             "Azure DevOps Services",
           ],
           logoPlaceholder: "truqu.jpeg",
+          brandColor: "#0A1E3F",
+          colorScheme: "from-slate-700 to-slate-800",
+          bgGradient: "from-slate-600 to-slate-700",
         },
         {
           id: "pwn",
@@ -87,6 +106,9 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
             "Content Management Systems (CMS)",
           ],
           logoPlaceholder: "pwn.jpeg",
+          brandColor: "#7FBD4B",
+          colorScheme: "from-green-600 to-green-700",
+          bgGradient: "from-green-500 to-green-600",
         },
         {
           id: "vaneck",
@@ -99,6 +121,9 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
             "Built Angular components and secure REST APIs for user identity verification and payment processing, integrating third-party services. Managed application state using NgRx and supported deployment across various environments.",
           skills: ["Angular", "TypeScript", "NgRx", "Azure DevOps Services"],
           logoPlaceholder: "vaneck.jpeg",
+          brandColor: "#24458B",
+          colorScheme: "from-blue-700 to-blue-800",
+          bgGradient: "from-blue-600 to-blue-700",
         },
       ],
     },
@@ -114,6 +139,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
         "Automated invoice processing in Workday using Java, reducing manual workload by over 40 hours monthly. Developed scripts to parse and categorize multi-currency invoices efficiently, improving accounting operations. Built a Java and SQL-based backend integrated with Adyen's API to support real-time product demonstrations during live events.",
       skills: ["Java", "SQL", "Workday Integration", "Python"],
       logoPlaceholder: "adyen.jpeg",
+      brandColor: "#57BC60",
       colorScheme: "from-green-600 to-emerald-600",
       bgGradient: "from-green-500 to-emerald-500",
       thesis: {
@@ -137,8 +163,9 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
         "Developed a Scala-based decision engine using actor model architecture, reducing processing time from 21 seconds to 1.2 seconds. Demonstrated the benefits of concurrent processing and efficient logic design.",
       skills: ["Scala", "Python", "Quantitative Research"],
       logoPlaceholder: "finaps.jpeg",
-      colorScheme: "from-blue-600 to-indigo-600",
-      bgGradient: "from-blue-500 to-indigo-500",
+      brandColor: "#F2AE3D",
+      colorScheme: "from-yellow-500 to-orange-500",
+      bgGradient: "from-yellow-400 to-orange-500",
       thesis: {
         title: "Bachelor Thesis",
         description:
@@ -158,8 +185,9 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
         "Built a cross-platform mobile app in React Native to give construction workers easy access to training videos and manuals. Focused on intuitive UI and accessibility for non-technical users.",
       skills: ["React Native", "TypeScript", "HTML", "CSS", "SQL"],
       logoPlaceholder: "fbi.jpeg",
-      colorScheme: "from-gray-600 to-slate-600",
-      bgGradient: "from-gray-500 to-slate-500",
+      brandColor: "#E05C31",
+      colorScheme: "from-orange-600 to-red-600",
+      bgGradient: "from-orange-500 to-red-500",
     },
   ];
 
@@ -219,17 +247,16 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
                 {/* Company Header */}
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                   <div className="flex items-start gap-4 flex-1">
-                    {/* Company Logo Placeholder */}
-                    <div className="flex-shrink-0 w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
-                      <Image
-                        src={`/logos/${exp.logoPlaceholder}`}
-                        alt={`${exp.company} logo`}
-                        className="w-12 h-12 object-contain"
-                        width={200}
-                        height={200}
-                      />
-                      <div className="hidden w-12 h-12 bg-gray-300 rounded items-center justify-center text-gray-600 text-xs font-semibold">
-                        <Building size={24} />
+                    {/* Company Logo with improved styling */}
+                    <div className="flex-shrink-0 relative">
+                      <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg ring-2 ring-white/20">
+                        <Image
+                          src={`/logos/${exp.logoPlaceholder}`}
+                          alt={`${exp.company} logo`}
+                          className="w-full h-full object-contain bg-white"
+                          width={64}
+                          height={64}
+                        />
                       </div>
                     </div>
 
@@ -319,48 +346,61 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
                       {exp.projects.map((project) => (
                         <div
                           key={project.id}
-                          className={`p-4 rounded-lg border ${darkMode ? "bg-gray-800/30 border-gray-700/50" : "bg-gray-50/50 border-gray-200/50"}`}
+                          className="group/project relative"
                         >
-                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-                            <div className="flex items-start gap-3">
-                              <div className="flex-shrink-0 w-10 h-10 bg-gray-200 rounded flex items-center justify-center">
-                                <Image
-                                  src={`/logos/${project.logoPlaceholder}`}
-                                  alt={`${project.company} logo`}
-                                  className="w-8 h-8 object-contain"
-                                  width={144}
-                                  height={144}
-                                />
-                                <div className="hidden w-8 h-8 bg-gray-300 rounded items-center justify-center text-gray-600 text-xs">
-                                  <Building size={16} />
+                          <div
+                            className={`absolute -inset-0.5 bg-gradient-to-r ${project.bgGradient} rounded-lg blur opacity-0 group-hover/project:opacity-30 transition duration-300`}
+                          ></div>
+                          <div
+                            className={`relative p-4 rounded-lg border-2 ${
+                              darkMode
+                                ? `bg-gray-800/30 border-gray-700/50 hover:border-opacity-80`
+                                : `bg-gray-50/50 border-gray-200/50 hover:border-opacity-80`
+                            } transition-all duration-300 hover:shadow-lg backdrop-blur-sm`}
+                            style={{
+                              borderColor: project.brandColor + "40", // 40 for 25% opacity
+                            }}
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+                              <div className="flex items-start gap-3">
+                                <div className="flex-shrink-0 relative">
+                                  <div className="w-10 h-10 rounded-lg overflow-hidden shadow-md ring-2 ring-white/20">
+                                    <Image
+                                      src={`/logos/${project.logoPlaceholder}`}
+                                      alt={`${project.company} logo`}
+                                      className="w-full h-full object-contain bg-white"
+                                      width={40}
+                                      height={40}
+                                    />
+                                  </div>
+                                </div>
+                                <div>
+                                  <h5
+                                    className={`font-semibold bg-gradient-to-r ${project.colorScheme} bg-clip-text text-transparent`}
+                                  >
+                                    {project.company}
+                                  </h5>
+                                  <p className="text-sm text-gray-500">
+                                    {project.period} · {project.duration}
+                                  </p>
                                 </div>
                               </div>
-                              <div>
-                                <h5
-                                  className={`font-semibold ${darkMode ? "text-white" : "text-gray-900"}`}
-                                >
-                                  {project.company}
-                                </h5>
-                                <p className="text-sm text-gray-500">
-                                  {project.period} · {project.duration}
-                                </p>
-                              </div>
                             </div>
-                          </div>
-                          <p
-                            className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-600"} mb-3`}
-                          >
-                            {project.description}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {project.skills.map((skill, skillIndex) => (
-                              <span
-                                key={skillIndex}
-                                className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs font-medium"
-                              >
-                                {skill}
-                              </span>
-                            ))}
+                            <p
+                              className={`text-sm ${darkMode ? "text-gray-300" : "text-gray-600"} mb-3`}
+                            >
+                              {project.description}
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                              {project.skills.map((skill, skillIndex) => (
+                                <span
+                                  key={skillIndex}
+                                  className={`px-2 py-1 bg-gradient-to-r ${project.bgGradient} text-white rounded text-xs font-medium shadow-sm hover:shadow-md transition-shadow duration-300`}
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         </div>
                       ))}
