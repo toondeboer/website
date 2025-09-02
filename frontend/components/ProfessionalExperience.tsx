@@ -9,7 +9,7 @@ const calculateDuration = (startDate: string): string => {
 
   const diffInMs = now.getTime() - start.getTime();
   const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-  const diffInMonths = Math.floor(diffInDays / 30.44); // Average days per month
+  const diffInMonths = Math.floor(diffInDays / 30.44) + 1; // Average days per month
   const years = Math.floor(diffInMonths / 12);
   const months = diffInMonths % 12;
 
@@ -30,8 +30,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
       period: "Mar 2024 - Present",
       startDate: "2024-03-01", // For dynamic calculation
       duration: calculateDuration("2024-03-01"),
-      location: "Amsterdam, North Holland, Netherlands · Hybrid",
-      type: "Full-time",
+      location: "Amsterdam, North Holland, Netherlands",
       description:
         "Contributed to the development of a regulatory monitoring tool used by over 8000 engineers at a major Dutch bank. Improved compliance visibility and remediation by implementing a React/TypeScript frontend and Node.js/PostgreSQL backend with Azure DevOps API integrations. Participated in architectural design discussions using clean architecture principles and patterns like Factory and Strategy. Helped integrate observability tools including Piano Analytics, Splunk, and Split.io.",
       skills: [
@@ -52,8 +51,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
       company: "NAVARA",
       period: "Aug 2022 - Feb 2024",
       duration: "1 yr 7 mos",
-      location: "Amsterdam, North Holland, Netherlands · Hybrid",
-      type: "Full-time",
+      location: "Amsterdam, North Holland, Netherlands",
       description:
         "Worked as a consultant on a range of full-stack development projects for clients across finance, utilities, and HR sectors. Designed and implemented scalable web applications using Angular, Node.js, C#, and SQL. Focused on clean architecture, maintainability, and automated testing. Collaborated with cross-functional teams to deliver robust and production-ready solutions, adapting quickly to each client's tech stack and domain.",
       skills: [
@@ -74,7 +72,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
           company: "TruQu - performance & talent management software",
           period: "May 2023 - Feb 2024",
           duration: "10 mos",
-          location: "Driebergen-Rijsenburg, Utrecht, Netherlands · Hybrid",
+          location: "Driebergen-Rijsenburg, Utrecht, Netherlands",
           description:
             "Developed features for a performance tracking web application using Angular, Node.js, and SQL on Azure. Ensured production reliability through CI/CD pipeline automation and Cypress end-to-end testing. Took part in technical planning meetings and conducted research to support robust feature development.",
           skills: [
@@ -95,7 +93,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
           company: "PWN",
           period: "Jan 2023 - May 2023",
           duration: "5 mos",
-          location: "Velserbroek, North Holland, Netherlands · Hybrid",
+          location: "Velserbroek, North Holland, Netherlands",
           description:
             "Migrated legacy Drupal CMS forms into reusable Angular web components. Modernized backend services using C#, Node.js, and SQL to align with current web standards and improve system maintainability.",
           skills: [
@@ -116,7 +114,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
           company: "VanEck",
           period: "Aug 2022 - Jan 2023",
           duration: "6 mos",
-          location: "Amsterdam, North Holland, Netherlands · Hybrid",
+          location: "Amsterdam, North Holland, Netherlands",
           description:
             "Built Angular components and secure REST APIs for user identity verification and payment processing, integrating third-party services. Managed application state using NgRx and supported deployment across various environments.",
           skills: ["Angular", "TypeScript", "NgRx", "Azure DevOps Services"],
@@ -133,8 +131,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
       company: "Adyen",
       period: "Jul 2019 - Nov 2021",
       duration: "2 yrs 5 mos",
-      location: "Amsterdam, North Holland, Netherlands · On-site",
-      type: "Full-time",
+      location: "Amsterdam, North Holland, Netherlands",
       description:
         "Automated invoice processing in Workday using Java, reducing manual workload by over 40 hours monthly. Developed scripts to parse and categorize multi-currency invoices efficiently, improving accounting operations. Built a Java and SQL-based backend integrated with Adyen's API to support real-time product demonstrations during live events.",
       skills: ["Java", "SQL", "Workday Integration", "Python"],
@@ -157,8 +154,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
       company: "Finaps",
       period: "Apr 2019 - Jul 2019",
       duration: "4 mos",
-      location: "Amsterdam, North Holland, Netherlands · On-site",
-      type: "Internship",
+      location: "Amsterdam, North Holland, Netherlands",
       description:
         "Developed a Scala-based decision engine using actor model architecture, reducing processing time from 21 seconds to 1.2 seconds. Demonstrated the benefits of concurrent processing and efficient logic design.",
       skills: ["Scala", "Python", "Quantitative Research"],
@@ -179,8 +175,7 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
       company: "FBIdesign",
       period: "Feb 2019 - Jun 2019",
       duration: "5 mos",
-      location: "Haarlem, North Holland, Netherlands · On-site",
-      type: "Full-time",
+      location: "Haarlem, North Holland, Netherlands",
       description:
         "Built a cross-platform mobile app in React Native to give construction workers easy access to training videos and manuals. Focused on intuitive UI and accessibility for non-technical users.",
       skills: ["React Native", "TypeScript", "HTML", "CSS", "SQL"],
@@ -280,11 +275,6 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
                           <MapPin size={14} />
                           {exp.location}
                         </span>
-                        {exp.type && (
-                          <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs font-medium">
-                            {exp.type}
-                          </span>
-                        )}
                       </div>
                     </div>
                   </div>
