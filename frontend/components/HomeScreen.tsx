@@ -29,6 +29,7 @@ const HomeScreen = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isLoading, setIsLoading] = useState(true);
 
   // Initialize dark mode based on system preference and localStorage
   useEffect(() => {
@@ -214,6 +215,67 @@ const HomeScreen = () => {
     </div>
   );
 
+  // Loading Animation Overlay Component
+  const ImageLoadingOverlay = ({
+    isLoading,
+    shape = "round",
+  }: {
+    isLoading: boolean;
+    shape: string;
+  }) => {
+    if (!isLoading) return null;
+
+    const shapeClasses = shape === "round" ? "rounded-full" : "rounded-3xl";
+
+    return (
+      <div
+        className={`absolute inset-0 ${shapeClasses} overflow-hidden bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800`}
+      >
+        {/* Shimmer Effect */}
+        <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-white/10"></div>
+
+        {/* Pulsing Circles */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div
+            className={`w-20 h-20 ${shapeClasses} bg-gradient-to-r from-blue-400/30 to-purple-600/30 animate-pulse`}
+          ></div>
+        </div>
+
+        {/* Rotating Ring for circles, Border pulse for rectangles */}
+        {shape === "round" ? (
+          <div className="absolute inset-2 border-4 border-transparent border-t-blue-500 border-r-purple-500 rounded-full animate-spin"></div>
+        ) : (
+          <div className="absolute inset-2 border-4 border-blue-500/40 rounded-2xl animate-pulse"></div>
+        )}
+
+        {/* Inner Glow */}
+        <div
+          className={`absolute inset-4 bg-gradient-to-r from-pink-400/20 to-orange-400/20 ${shapeClasses} animate-pulse`}
+          style={{ animationDelay: "0.5s" }}
+        ></div>
+
+        {/* Center Dot */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-bounce"></div>
+        </div>
+
+        {/* Floating Particles */}
+        <div
+          className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping"
+          style={{ animationDelay: "0s" }}
+        ></div>
+        <div
+          className="absolute top-3/4 right-1/4 w-1.5 h-1.5 bg-purple-400 rounded-full animate-ping"
+          style={{ animationDelay: "1s" }}
+        ></div>
+        <div
+          className="absolute bottom-1/3 left-2/3 w-2.5 h-2.5 bg-pink-400 rounded-full animate-ping"
+          style={{ animationDelay: "2s" }}
+        ></div>
+      </div>
+    );
+  };
+
   return (
     <div
       className={`min-h-screen transition-all duration-500 ${darkMode ? "dark bg-gray-900 text-white" : "bg-gradient-to-br from-slate-50 via-white to-blue-50 text-gray-900"}`}
@@ -344,12 +406,16 @@ const HomeScreen = () => {
             <div className="relative mb-8">
               <div className="w-36 h-36 mx-auto rounded-full relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full p-1">
+                  <ImageLoadingOverlay isLoading={isLoading} shape="round" />
                   <Image
                     src={HEADSHOT}
                     alt="Toon de Boer - Full Stack Developer"
                     width={144}
                     height={144}
-                    className="w-full h-full object-cover rounded-full"
+                    className={`w-full h-full object-cover rounded-full transition-opacity duration-500 ${
+                      isLoading ? "opacity-0" : "opacity-100"
+                    }`}
+                    onLoad={() => setIsLoading(false)}
                     priority
                   />
                 </div>
@@ -476,12 +542,19 @@ const HomeScreen = () => {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-lg opacity-25 group-hover:opacity-50 transition-all duration-500"></div>
                 <div className="relative w-80 h-80 mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/25">
+                  <ImageLoadingOverlay
+                    isLoading={isLoading}
+                    shape="rectangle"
+                  />
                   <Image
                     src={HEADSHOT}
                     alt="Toon de Boer - Full Stack Developer"
                     width={320}
                     height={320}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className={`w-full h-full object-cover hover:scale-105 transition-transform duration-500 ${
+                      isLoading ? "opacity-0" : "opacity-100"
+                    }`}
+                    onLoad={() => setIsLoading(false)}
                   />
                 </div>
               </div>
