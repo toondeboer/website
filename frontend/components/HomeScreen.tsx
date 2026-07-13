@@ -127,7 +127,7 @@ const HomeScreen = () => {
       ],
       appStore:
         "https://apps.apple.com/nl/app/poker-blinds-buzzer/id6749512168",
-      googlePlay: undefined,
+      googlePlay: "https://play.google.com/store/apps/details?id=com.toondeboer.pokerkit",
       website: "https://poker-timer.toondeboer.com/",
       github: "https://github.com/toondeboer/poker",
       gradient: "from-emerald-400 via-teal-500 to-cyan-600",
