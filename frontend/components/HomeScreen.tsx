@@ -8,13 +8,13 @@ import {
   Menu,
   X,
   Code,
-  Database,
   Globe,
   Brain,
   Cpu,
   Cloud,
   ChevronDown,
   Heart,
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -115,33 +115,27 @@ const HomeScreen = () => {
 
   const projects: Project[] = [
     {
-      title: "Poker Timer App",
+      title: "Sailor — AI Investment & Portfolio Platform",
       description:
-        "A comprehensive poker timer app with customizable blind levels, timer duration and alerts.",
-      technologies: ["React Native", "TypeScript", "Swift", "Java", "Expo"],
-      features: [
-        "Custom Timer Duration",
-        "Custom Blind Structures",
-        "Timer Alerts",
-        "Live Updates on Notification Screen",
+        'An AI-assisted portfolio platform with an in-app conversational agent ("Captain") that answers questions about holdings, performance, and market context. Portfolio state is summarized and fed as grounded context to an OpenAI model behind a serverless AWS backend, with live pricing via the Yahoo Finance API.',
+      technologies: [
+        "Python",
+        "LLM APIs (OpenAI)",
+        "Prompt Engineering",
+        "AWS Lambda",
+        "API Gateway",
+        "DynamoDB",
+        "Cognito",
+        "S3",
+        "CloudFront",
+        "CodePipeline",
+        "Angular",
       ],
-      appStore:
-        "https://apps.apple.com/nl/app/poker-blinds-buzzer/id6749512168",
-      googlePlay: "https://play.google.com/store/apps/details?id=com.toondeboer.pokerkit",
-      website: "https://poker-timer.toondeboer.com/",
-      github: "https://github.com/toondeboer/poker",
-      gradient: "from-emerald-400 via-teal-500 to-cyan-600",
-      icon: "♠️",
-    },
-    {
-      title: "Investment Tracking App",
-      description:
-        "A sophisticated portfolio tracker with real-time market data, performance analytics, and clear insights.",
-      technologies: ["Angular", "AWS Lambda", "AWS DynamoDB", "AWS S3"],
       features: [
-        "Real-time Data",
-        "Portfolio Insights",
-        "Performance Tracking",
+        "Conversational Portfolio Agent",
+        "Grounded Portfolio & Market Context",
+        "Real-time Market Data",
+        "Performance Analytics",
       ],
       appStore: undefined,
       googlePlay: undefined,
@@ -177,11 +171,44 @@ const HomeScreen = () => {
       gradient: "from-amber-400 via-orange-500 to-red-600",
       icon: "🗺️",
     },
+    {
+      title: "Poker Timer App",
+      description:
+        "A comprehensive poker timer app with customizable blind levels, timer duration and alerts.",
+      technologies: ["React Native", "TypeScript", "Swift", "Java", "Expo"],
+      features: [
+        "Custom Timer Duration",
+        "Custom Blind Structures",
+        "Timer Alerts",
+        "Live Updates on Notification Screen",
+      ],
+      appStore:
+        "https://apps.apple.com/nl/app/poker-blinds-buzzer/id6749512168",
+      googlePlay:
+        "https://play.google.com/store/apps/details?id=com.toondeboer.pokerkit",
+      website: "https://poker-timer.toondeboer.com/",
+      github: "https://github.com/toondeboer/poker",
+      gradient: "from-emerald-400 via-teal-500 to-cyan-600",
+      icon: "♠️",
+    },
   ];
 
   const skills = [
     {
-      category: "AI & ML Topics",
+      category: "GenAI & LLM Engineering",
+      icon: <Sparkles className="w-6 h-6" />,
+      technologies: [
+        "LLM API Integration (OpenAI)",
+        "Prompt Engineering",
+        "LLM Guardrails & Cost Control",
+        "Local Inference (Ollama)",
+        "AI-Assisted Development (Cursor, Claude Code, Copilot)",
+      ],
+      color: "from-violet-500 to-fuchsia-500",
+      bgColor: darkMode ? "bg-gray-800/50" : "bg-white/80",
+    },
+    {
+      category: "AI & Machine Learning",
       icon: <Brain className="w-6 h-6" />,
       technologies: [
         "Machine Learning",
@@ -193,24 +220,21 @@ const HomeScreen = () => {
         "Data Mining",
         "Feature Engineering",
         "Model Evaluation",
-        "Generative AI",
+        "MLOps",
       ],
       color: "from-blue-500 to-indigo-500",
       bgColor: darkMode ? "bg-gray-800/50" : "bg-white/80",
     },
     {
-      category: "ML & Data Technologies",
+      category: "Data & ML Tooling",
       icon: <Cpu className="w-6 h-6" />,
       technologies: [
         "TensorFlow",
         "PyTorch",
-        "Spark",
-        "Kafka",
-        "Hadoop",
-        "Airflow",
         "Pandas",
         "NumPy",
-        "Vector Databases",
+        "Spark",
+        "Hadoop",
       ],
       color: "from-purple-500 to-pink-500",
       bgColor: darkMode ? "bg-gray-800/50" : "bg-white/80",
@@ -225,36 +249,29 @@ const HomeScreen = () => {
         "JavaScript",
         "SQL",
         "Scala",
+        "C#",
       ],
       color: "from-emerald-500 to-teal-500",
       bgColor: darkMode ? "bg-gray-800/50" : "bg-white/80",
     },
     {
-      category: "Backend, Cloud & Infra",
+      category: "Backend, Cloud & Architecture",
       icon: <Cloud className="w-6 h-6" />,
       technologies: [
-        "AWS",
+        "AWS Lambda & API Gateway",
+        "DynamoDB",
+        "S3 & CloudFront",
         "Azure",
         "Docker",
-        "Kubernetes",
         "CI/CD",
         "PostgreSQL",
-      ],
-      color: "from-sky-500 to-cyan-500",
-      bgColor: darkMode ? "bg-gray-800/50" : "bg-white/80",
-    },
-    {
-      category: "Software Engineering Patterns",
-      icon: <Database className="w-6 h-6" />,
-      technologies: [
-        "Distributed Systems",
         "REST APIs",
+        "GraphQL",
         "Microservices",
         "System Design",
-        "Software Architecture",
-        "Clean Architecture",
+        "Domain-Driven Design",
       ],
-      color: "from-orange-500 to-red-500",
+      color: "from-sky-500 to-cyan-500",
       bgColor: darkMode ? "bg-gray-800/50" : "bg-white/80",
     },
     {
@@ -264,13 +281,13 @@ const HomeScreen = () => {
         "React",
         "Next.js",
         "Angular",
-        "Node.js",
+        "NgRx",
         "React Native",
-        "GraphQL",
+        "Node.js",
         "Express.js",
-        "DynamoDB",
+        "Tailwind CSS",
       ],
-      color: "from-rose-500 to-fuchsia-500",
+      color: "from-orange-500 to-red-500",
       bgColor: darkMode ? "bg-gray-800/50" : "bg-white/80",
     },
   ];
@@ -526,18 +543,16 @@ const HomeScreen = () => {
             </div>
             <h1 className="text-5xl sm:text-7xl font-bold mb-6 relative">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-pulse">
-                AI, ML & Software Projects
+                Toon de Boer
               </span>
             </h1>
             <p
               className={`text-xl sm:text-2xl ${darkMode ? "text-gray-300" : "text-gray-600"} mb-8 max-w-4xl mx-auto leading-relaxed`}
             >
-              A collection of projects, experiments, and production systems
-              from my work across fintech and enterprise, plus my AI
-              specialization at TU Delft.
+              Software engineer with an AI specialization from TU Delft.
               <br className="hidden sm:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-semibold">
-                {" "}Built with modern ML, data, backend, and cloud tooling.
+                {" "}This is where my side projects live.
               </span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -577,7 +592,7 @@ const HomeScreen = () => {
             <p
               className={`text-xl ${darkMode ? "text-gray-300" : "text-gray-600"} max-w-3xl mx-auto`}
             >
-              {"I'm a "}
+              {"I'm "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 font-semibold">
                 a builder who enjoys mixing software engineering with AI/ML
               </span>{" "}
@@ -602,6 +617,18 @@ const HomeScreen = () => {
                 </span>{" "}
                 with tools like Python, Java, TypeScript, AWS, Azure, and
                 PostgreSQL.
+              </p>
+              <p
+                className={`${darkMode ? "text-gray-300" : "text-gray-600"} leading-relaxed text-lg`}
+              >
+                Lately most of that energy goes into
+                <span className="text-purple-600 font-semibold">
+                  {" "}GenAI engineering
+                </span>
+                : integrating LLM APIs into real products, designing the prompts
+                and guardrails that keep them useful, and running models locally
+                to see what they can do — with the same attention to reliability
+                and cost that the backend and cloud work needs.
               </p>
               <p
                 className={`${darkMode ? "text-gray-300" : "text-gray-600"} leading-relaxed text-lg`}
@@ -872,11 +899,9 @@ const HomeScreen = () => {
             <p
               className={`text-xl ${darkMode ? "text-gray-300" : "text-gray-600"} max-w-3xl mx-auto`}
             >
-              {
-                "Ready to bring your next project to life? Let's discuss how we can "
-              }
+              {"Curious about one of the projects, or just want to say hi? "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-semibold">
-                work together
+                Find me on LinkedIn or GitHub
               </span>
               .
             </p>
@@ -888,7 +913,6 @@ const HomeScreen = () => {
                 className={`relative ${darkMode ? "bg-gray-900/95 border-gray-700/50" : "bg-white/95 border-white/20"} rounded-3xl p-8 shadow-2xl border backdrop-blur-sm`}
               >
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
-
                   <a
                     href="https://linkedin.com/in/toon-de-boer"
                     target="_blank"
@@ -930,15 +954,14 @@ const HomeScreen = () => {
                       </p>
                     </div>
                   </a>
-
                 </div>
 
                 <div className="text-center">
                   <p
                     className={`${darkMode ? "text-gray-300" : "text-gray-600"} mb-6 text-lg`}
                   >
-                    Always happy to chat about engineering, AI tooling, and
-                    fun product ideas{" "}
+                    Always happy to chat about engineering, AI tooling, and fun
+                    product ideas{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 font-semibold">
                       or share notes on what I have built
                     </span>
@@ -971,7 +994,7 @@ const HomeScreen = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
             <p className="text-gray-300 text-lg">
-              &copy; 2025{" "}
+              &copy; 2026{" "}
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">
                 Toon de Boer
               </span>

@@ -31,12 +31,13 @@ const ProfessionalExperience = ({ darkMode }: { darkMode: boolean }) => {
       duration: calculateDuration("2024-03-01"),
       location: "Amsterdam, North Holland, Netherlands",
       description:
-        "Led development of a regulatory monitoring platform used by 8,000+ engineers at a major Dutch bank. Built scalable full-stack capabilities with React, TypeScript, Node.js, PostgreSQL, and Azure DevOps APIs, and improved observability through Split.io, Piano Analytics, and Splunk. Organized internal experimentation sessions with Cursor, OpenAI APIs, and Ollama, resulting in working prototypes and knowledge-sharing presentations. Completed internal trainings in Data Science, Generative AI, Data Management, and Data Visualization while mentoring engineers and interviewing software candidates.",
+        "Led development of a regulatory monitoring platform used by 8,000+ engineers at a major Dutch bank. Built scalable full-stack capabilities with React, TypeScript, Node.js, PostgreSQL, and Azure DevOps APIs, integrating data supplied by other engineering teams across the bank through GraphQL APIs, and improved observability through Split.io, Piano Analytics, and Splunk. Organized internal experimentation sessions with Cursor, OpenAI APIs, and Ollama, resulting in working prototypes and knowledge-sharing presentations. Completed internal trainings in Data Science, Generative AI, Data Management, and Data Visualization while mentoring engineers and interviewing software candidates.",
       skills: [
         "React",
         "TypeScript",
         "Node.js",
         "Java",
+        "GraphQL",
         "PostgreSQL",
         "Azure DevOps Services",
         "Generative AI",

@@ -3,8 +3,9 @@ import "./globals.css";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Toon de Boer",
-  description: "Website by Toon de Boer",
+  title: "Toon de Boer | AI & Software Engineer",
+  description:
+    "Software engineer with an AI specialization from TU Delft. This is where my side projects live.",
 };
 
 export default function RootLayout({
